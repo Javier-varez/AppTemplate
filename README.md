@@ -4,7 +4,8 @@
 This project is a C++ application template for small embedded ARM Cortex-M MCUs.
 
 After cloning make sure to update the following fields:
-  * Update the `APPLICATION_NAME` variable in CMakeLists.txt with the name of your application
+  * Update the `APPLICATION_NAME` variable in CMakeLists.txt with the name of your application.
+  * Update the `CHIP_NAME` variable in CMakeLists.txt with the target chip. You can see available targets with `postform_rtt --list-chips`.
   * Update the `memory.ld` linker script to point to your RAM and FLASH memories.
   * Update the systick frequency in `systick_config.h`.
   * Write your own code and have tons of fun!
@@ -45,7 +46,8 @@ cargo install postform_rtt --git https://github.com/Javier-varez/postform --bran
 Then run the program in the target, connect it to the computer using a JTAG/SWD interface and run:
 
 ```bash
-postform_rtt --chip nRF52840_xxAA build/nrf52_app
+cd build
+ninja run
 ```
 
 You should see some logs being printed in your terminal now!
