@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 
 set(APPLICATION_NAME nrf52_app)
+set(CHIP_NAME nRF52840_xxAA)
+
 project(${APPLICATION_NAME})
 
 include(cmake/cortex-m_hal.cmake)
@@ -45,3 +47,8 @@ set_target_properties(
     ${APPLICATION_NAME}
     PROPERTIES
     LINK_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/memory.ld)
+
+add_custom_target(
+    run
+    COMMAND postform_rtt --chip ${CHIP_NAME} ${CMAKE_BINARY_DIR}/${APPLICATION_NAME}
+    DEPENDS ${APPLICATION_NAME})
