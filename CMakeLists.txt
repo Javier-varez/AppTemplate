@@ -51,4 +51,11 @@ set_target_properties(
 add_custom_target(
     run
     COMMAND postform_rtt --chip ${CHIP_NAME} ${CMAKE_BINARY_DIR}/${APPLICATION_NAME}
-    DEPENDS ${APPLICATION_NAME})
+    DEPENDS ${APPLICATION_NAME}
+    USES_TERMINAL)
+
+add_custom_target(
+    attach
+    COMMAND postform_rtt --attach --chip ${CHIP_NAME} ${CMAKE_BINARY_DIR}/${APPLICATION_NAME}
+    DEPENDS ${APPLICATION_NAME}
+    USES_TERMINAL)
