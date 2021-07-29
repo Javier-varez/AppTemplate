@@ -39,7 +39,7 @@ target_link_options(
     ${APPLICATION_NAME}
     PRIVATE
     "SHELL:-Wl,-T ${CMAKE_CURRENT_SOURCE_DIR}/memory.ld"
-    "-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/nrf52_app.map")
+    "-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/${APPLICATION_NAME}.map")
 
 set_target_properties(
     ${APPLICATION_NAME}
